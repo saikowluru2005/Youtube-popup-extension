@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Icon</title>
+</head>
+<body>
+    <canvas id="canvas" width="16" height="16" style="display:none"></canvas>
+    <script>
+        window.onload = function() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Draw red background
+            ctx.fillStyle = '#FF0000';
+            ctx.fillRect(0, 0, 16, 16);
+            
+            // Draw white play triangle
+            ctx.fillStyle = '#FFFFFF';
+            ctx.beginPath();
+            ctx.moveTo(6, 4);
+            ctx.lineTo(12, 8);
+            ctx.lineTo(6, 12);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Download the PNG
+            const dataURL = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = 'icon16.png';
+            link.href = dataURL;
+            link.click();
+        };
+    </script>
+</body>
+</html> 
